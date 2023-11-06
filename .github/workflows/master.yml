@@ -14,7 +14,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@3.1.2
       with:
-        server: www.kaaruj.backend.clients.devsstream.com
+        ftp-server: www.kaaruj.backend.clients.devsstream.com
         username: cicd_test@kaaruj.backend.clients.devsstream.com
         password: ${{ secrets.ftp_password }}
         protocol: ftps
