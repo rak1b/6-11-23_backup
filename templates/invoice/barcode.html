@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Image</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family:  Arial;
+        }
+    
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center; 
+            height: 100%; 
+        }
+    
+        .product-info {
+            width: auto;
+            line-height: 0.01;
+        }
+    
+        .product-image {
+            width: 250px;
+            height: 50px;
+            line-height: 0.01;
+        }
+    
+        .product-name {
+            font-size: 14px;
+            line-height: 0.01;
+        }
+    
+        .product-price {
+            font-size: 14px;
+            line-height: 0.01;
+        }
+    
+        .product-slug {
+            font-size: 14px;
+            line-height: 0.01;
+        }
+        
+        .vat {
+            font-size: 7px;
+            line-height: 0.01;
+        }
+    
+        .product-name strong,
+        .product-slug strong {
+            font-weight: bold;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-info">
+            <h2>KAARUJ</h2>
+            {% comment %} <h2><strong>KAARUJ</strong></h2> {% endcomment %}
+            <h3 class="product-price">{{ product.price }} BDT</h3>
+            <h6 class="vat">(Vat Included)</h6>
+            <h3 class="product-name">{{ product_first_name }}</h3>
+            <h3 class="product-name">{{ product_last_name }}</h3>
+            <img class="product-image" src="data:image/png;base64,{{ barcode_base64 }}">
+            {% comment %} <img class="product-image" src="data:image/png;base64,{{ barcode_base64 }}"> {% endcomment %}
+            <h3 class="product-slug">{{ product.sku }}</h3>
+        </div>
+    </div>
+</body>
+</html>

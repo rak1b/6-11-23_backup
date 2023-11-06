@@ -1,0 +1,286 @@
+offers <QuerySet [<Offer: category offer>]> 1
+products <QuerySet [None]> 1
+offers <QuerySet [<Offer: category offer>]> 1
+products <QuerySet [None]> 1
+Internal Server Error: /api/v1/inventory/web/product/
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/clientsdevs/kaaruj.backend.clients.devsstream.com/inventory/api/web/views.py", line 48, in list
+    return super().list(request, *args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/rest_framework/backends.py", line 74, in filter_queryset
+    return filterset.qs
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/filterset.py", line 230, in qs
+    qs = self.filter_queryset(qs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/filterset.py", line 213, in filter_queryset
+    queryset = self.filters[name].filter(queryset, value)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/filters.py", line 807, in __call__
+    return self.method(qs, self.f.field_name, value)
+  File "/home/clientsdevs/kaaruj.backend.clients.devsstream.com/inventory/api/filters.py", line 75, in filter_sort_by
+    products = queryset.annotate(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1573, in annotate
+    self._not_support_combined_queries("annotate")
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1945, in _not_support_combined_queries
+    raise NotSupportedError(
+django.db.utils.NotSupportedError: Calling QuerySet.annotate() after union() is not supported.
+Internal Server Error: /api/v1/inventory/web/product/
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/clientsdevs/kaaruj.backend.clients.devsstream.com/inventory/api/web/views.py", line 48, in list
+    return super().list(request, *args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/generics.py", line 150, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/rest_framework/backends.py", line 74, in filter_queryset
+    return filterset.qs
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/filterset.py", line 230, in qs
+    qs = self.filter_queryset(qs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/filterset.py", line 213, in filter_queryset
+    queryset = self.filters[name].filter(queryset, value)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django_filters/filters.py", line 807, in __call__
+    return self.method(qs, self.f.field_name, value)
+  File "/home/clientsdevs/kaaruj.backend.clients.devsstream.com/inventory/api/filters.py", line 75, in filter_sort_by
+    products = queryset.annotate(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1573, in annotate
+    self._not_support_combined_queries("annotate")
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1945, in _not_support_combined_queries
+    raise NotSupportedError(
+django.db.utils.NotSupportedError: Calling QuerySet.annotate() after union() is not supported.
+-------------color values Megenda~Size:16X16 2304 -------------------
+['Size:16X16', 'Megenda']
+-------------color values-------------------
+
+-------------color values Gray~Size:16X16 2315 -------------------
+['Size:16X16', 'Gray']
+-------------color values-------------------
+
+Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+-------------color values White variation~Size: Length 110" & Width 88" 1583 -------------------
+['Size: Length 110" & Width 88"', 'White variation']
+-------------color values-------------------
+
+-------------color values Sky variation~Size: Length 110" & Width 88" 1094 -------------------
+['Size: Length 110" & Width 88"', 'Sky variation']
+-------------color values-------------------
+
+-------------color values Sky variation~Size: Length 110" & Width 88" 1094 -------------------
+['Size: Length 110" & Width 88"', 'Sky variation']
+-------------color values-------------------
+
+-------------color values Sky variation~Size: Length 110" & Width 88" 1094 -------------------
+['Size: Length 110" & Width 88"', 'Sky variation']
+-------------color values-------------------
+
+-------------color values Sky variation~Size: Length 110" & Width 88" 1094 -------------------
+['Size: Length 110" & Width 88"', 'Sky variation']
+-------------color values-------------------
+
+-------------color values Sky variation~Size: Length 110" & Width 88" 1094 -------------------
+['Size: Length 110" & Width 88"', 'Sky variation']
+-------------color values-------------------
+
+Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+565656565[]
+565656565[{'product_name': 'IKAT Inspired Printed Cushion Cover', 'variant_name': 'deep sky blue~Sizes:  16” x 16”,', 'quantity': 2, 'price': <bound method Products.get_offer_price of <Products: IKAT Inspired Printed Cushion Cover - ID1053 - 46>>, 'total': Decimal('740.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/13/IKTC021.webp'}]
+565656565[{'product_name': 'IKAT Inspired Printed Cushion Cover', 'variant_name': 'deep sky blue~Sizes:  16” x 16”,', 'quantity': 2, 'price': <bound method Products.get_offer_price of <Products: IKAT Inspired Printed Cushion Cover - ID1053 - 46>>, 'total': Decimal('740.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/13/IKTC021.webp'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'Moroccan Printed Cushion Cover', 'variant_name': 'red', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Moroccan Printed Cushion Cover - ID1083 - 18>>, 'total': Decimal('350.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+565656565[{'product_name': 'Moroccan Printed Cushion Cover', 'variant_name': 'red', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Moroccan Printed Cushion Cover - ID1083 - 18>>, 'total': Decimal('350.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+-------------color values Sky Variation~Size: Length 110" & Width 88" 1085 -------------------
+['Size: Length 110" & Width 88"', 'Sky Variation']
+-------------color values-------------------
+
+-------------color values Sky Variation~Size: Length 110" & Width 88" 1085 -------------------
+['Size: Length 110" & Width 88"', 'Sky Variation']
+-------------color values-------------------
+
+-------------color values Size: Length 110" & Width 88" 2345 -------------------
+['Size: Length 110" & Width 88"']
+-------------color values-------------------
+
+-------------color values Sky Variation 2344 -------------------
+['Sky Variation']
+-------------color values-------------------
+
+-------------color values Sky Variation~Size: Length 110" & Width 88" 1085 -------------------
+['Size: Length 110" & Width 88"', 'Sky Variation']
+-------------color values-------------------
+
+-------------color values Sky Variation 2344 -------------------
+['Sky Variation']
+-------------color values-------------------
+
+-------------color values Size: Length 110" & Width 88" 2345 -------------------
+['Size: Length 110" & Width 88"']
+-------------color values-------------------
+
+CreateInvoice 352 payment_type 0 created True
+payment_type 0 type <class 'int'> ssl_status None type <class 'NoneType'>
+565656565[]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051109>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051109>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051109>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+Email sent successfully to ['01991155295m@gmail.com'] from info@kaaruj.com
+CreateInvoice 353 payment_type 0 created True
+payment_type 0 type <class 'int'> ssl_status None type <class 'NoneType'>
+565656565[]
+Customer Notification Error'AnonymousUser' object has no attribute 'get_full_name'
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+Email sent successfully to ['rakib@admin.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051107>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051107>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Size: Length 110" & Width 88"', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/soup.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Sky Variation', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/grilled-chicken-horizontal-1532030541.jpg'}]
+565656565[{'product_name': 'Block Printed Bedsheet', 'variant_name': 'Sky Variation', 'quantity': 1, 'price': <bound method Products.get_offer_price of <Products: Block Printed Bedsheet - ID384 - 1051108>>, 'total': Decimal('2290.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/documents/2023/10/06/grilled-chicken-horizontal-1532030541.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'MGLBC0004', 'variant_name': None, 'quantity': 1, 'price': Decimal('250.00'), 'total': Decimal('250.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+565656565[{'product_name': 'MGLBC0004', 'variant_name': None, 'quantity': 1, 'price': Decimal('250.00'), 'total': Decimal('250.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'MGLBC0004', 'variant_name': None, 'quantity': 1, 'price': Decimal('250.00'), 'total': Decimal('250.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+565656565[{'product_name': 'MGLBC0004', 'variant_name': None, 'quantity': 1, 'price': Decimal('250.00'), 'total': Decimal('250.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+565656565[]
+565656565[{'product_name': 'MGLBC0004', 'variant_name': None, 'quantity': 2, 'price': Decimal('1000.00'), 'total': Decimal('1000.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+565656565[{'product_name': 'MGLBC0004', 'variant_name': None, 'quantity': 2, 'price': Decimal('1000.00'), 'total': Decimal('1000.00'), 'thumb': 'https://kaaruj.backend.clients.devsstream.com/media/default/placeholder.jpg'}]
+Email sent successfully to ['kaaruj.bd.official@gmail.com'] from info@kaaruj.com
+------Daily Sales  Report Generation Failed at 2023-10-06 13:11:48.937026 --------
+-----------Cannot resolve keyword 'is_regular' into field. Choices are: created_at, id, is_custom, is_outlet, is_purchase_order, is_requisition_order, outlet, outlet_id, product_name, products, products_id, quantity, total_amount, updated_at Report Generation Failed at 2023-10-06 13:11:48.937330 ------------------
+
+createDailyReport(is_regular=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:11:48.941200 -------
+
+createDailyReport(is_outlet=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:11:48.942785 -------
+
+createDailyReport(is_requisition_order=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:11:48.944265 -------
+
+createDailyReport(is_purchase_order=True) executed
+createDailyReport_custom() executed
+UpdateProductOrder() executed
+-----------Cron Job Started-----------
+---Daily Sales  Report Generated at 2023-10-06 13:14:08.063191 -------
+
+createDailyReport(is_regular=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:14:08.065112 -------
+
+createDailyReport(is_outlet=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:14:08.066939 -------
+
+createDailyReport(is_requisition_order=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:14:08.069051 -------
+
+createDailyReport(is_purchase_order=True) executed
+createDailyReport_custom() executed
+UpdateProductOrder() executed
+-----------Cron Job Started-----------
+---Daily Sales  Report Generated at 2023-10-06 13:20:31.427127 -------
+
+createDailyReport(is_regular=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:20:31.430769 -------
+
+createDailyReport(is_outlet=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:20:31.439676 -------
+
+createDailyReport(is_requisition_order=True) executed
+---Daily Sales  Report Generated at 2023-10-06 13:20:31.448582 -------
+
+createDailyReport(is_purchase_order=True) executed
+createDailyReport_custom() executed
+UpdateProductOrder() executed
+-----------Cron Job Started-----------
+Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.

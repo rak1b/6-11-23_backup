@@ -1,0 +1,22 @@
+Django==4.1.1
+django-cors-headers==3.13.0
+django-filter==22.1
+djangorestframework==3.14.0
+drf-spectacular==0.24.2
+django-crontab
+python-decouple==3.6
+twilio
+python-barcode
+qrcode
+pillow
+psycopg2-binary
+django-wkhtmltopdf==3.4.0  
+openpyxl-image-loader
+urllib3==1.26.6
+xhtml2pdf
+django-import-export
+sslcommerz-lib
+zebra==0.1.0
+zplgrf==1.6.0
+weasyprint #https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#windows
+pdf2image  #https://pdf2image.readthedocs.io/en/latest/installation.html

@@ -1,0 +1,328 @@
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+{'invoice_products': [OrderedDict([('quantity', 120), ('total', Decimal('45600.00')), ('product_name', 'Bird Theme Cushion Cover [[BRTC005]]'), ('variant_name', 'Blue~Size- 16"X16"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 26)), ('product', <Products: Bird Theme Cushion Cover - ID413 - 4709>), ('variant', <Variant: Blue~Size- 16"X16" - ID1116 stock - 4729>), ('outlet', <Outlet: Rajshahi Outlet>)])], 'invoice_date': datetime.date(2023, 10, 26), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': 'Md Rakibul Islam', 'from_mobile': '+8801980907892', 'to_mobile': '+8801730387067', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': 'rakibrk300@gmail.com', 'from_address': '27 Shaptak Square, Shop#L03/13 2nd Floor (Level 3)Dhanmondi, Dhaka 1207', 'to_address': 'dhaka', 'to_address2': None, 'to_zip_code': None, 'to_city': 'Shipganj ( Chapai )', 'to_division': 'Rajshahi', 'to_district': 'Rajshahi', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('45600.00'), 'total_due': Decimal('45600.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('45600.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"Bird Theme Cushion Cover [[BRTC005]]":{"id":413,"variant":[{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":160,"quantity":"120","total":45600}],"variantObj":{"Blue~Size- 16\\"X16\\"":{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":160,"quantity":"120","total":45600}},"price":380,"stock":160,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0}},"maininnerstate":{"Bird Theme Cushion Cover [[BRTC005]]":[{"label":"Blue~Size- 16\\"X16\\"","value":1116,"price":0,"stock":160,"quantity":1}]}}', 'invoice_view_json': '[{"name":"Bird Theme Cushion Cover [[BRTC005]]","basePrice":380,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0,"price":0,"quantity":"120","id":1116,"total":45600,"variant":"Blue~Size- 16\\"X16\\""}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Rajshahi Outlet>, 'redex_division': None, 'redex_district': None, 'redex_area': None, 'created_by': <User: rajshahi@mail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 120 variant_reduce_quantity 120 total avaialable product stock 160 total avaialable variant stock 169
+---------Product Stock update issue outlet--------- Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.DataError: (1264, "Out of range value for column 'stock' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/clientsdevs/kaaruj.backend.clients.devsstream.com/sales/signals.py", line 105, in ReduceVariantStock
+    outlet_product.save()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/base.py", line 831, in save
+    self.save_base(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/base.py", line 882, in save_base
+    updated = self._save_table(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/base.py", line 995, in _save_table
+    updated = self._do_update(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/base.py", line 1059, in _do_update
+    return filtered._update(values) > 0
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1215, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1819, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1395, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/mysql/base.py", line 75, in execute
+    return self.cursor.execute(query, args)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/MySQLdb/cursors.py", line 206, in execute
+    res = self._query(query)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/MySQLdb/cursors.py", line 319, in _query
+    db.query(q)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/MySQLdb/connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.DataError: (1264, "Out of range value for column 'stock' at row 1")
+
+Internal Server Error: /api/v1/sales/inventory/invoice/
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.9/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/home/clientsdevs/kaaruj.backend.clients.devsstream.com/sales/api/inventory/serializers.py", line 91, in create
+    invoice.invoice_products.add(created_invoice_product)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/fields/related_descriptors.py", line 1092, in add
+    self._add_items(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/fields/related_descriptors.py", line 1313, in _add_items
+    self.through._default_manager.using(db).bulk_create(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 815, in bulk_create
+    returned_columns = self._batched_insert(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1824, in _batched_insert
+    self._insert(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/models/sql/compiler.py", line 1657, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/utils.py", line 83, in _execute
+    self.db.validate_no_broken_transaction()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/db/backends/base/base.py", line 520, in validate_no_broken_transaction
+    raise TransactionManagementError(
+django.db.transaction.TransactionManagementError: An error occurred in the current transaction. You can't execute queries until the end of the 'atomic' block.
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+{'invoice_products': [OrderedDict([('quantity', 120), ('total', Decimal('45600.00')), ('product_name', 'Bird Theme Cushion Cover [[BRTC005]]'), ('variant_name', 'Blue~Size- 16"X16"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 26)), ('product', <Products: Bird Theme Cushion Cover - ID413 - 4709>), ('variant', <Variant: Blue~Size- 16"X16" - ID1116 stock - 4729>), ('outlet', <Outlet: Rajshahi Outlet>)])], 'invoice_date': datetime.date(2023, 10, 26), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': 'Md Rakibul Islam', 'from_mobile': '+8801980907892', 'to_mobile': '+8801730387067', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': 'rakibrk300@gmail.com', 'from_address': '27 Shaptak Square, Shop#L03/13 2nd Floor (Level 3)Dhanmondi, Dhaka 1207', 'to_address': 'dhaka', 'to_address2': None, 'to_zip_code': None, 'to_city': 'Shipganj ( Chapai )', 'to_division': 'Rajshahi', 'to_district': 'Rajshahi', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('45600.00'), 'total_due': Decimal('45600.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('45600.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"Bird Theme Cushion Cover [[BRTC005]]":{"id":413,"variant":[{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":160,"quantity":"120","total":45600}],"variantObj":{"Blue~Size- 16\\"X16\\"":{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":160,"quantity":"120","total":45600}},"price":380,"stock":160,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0}},"maininnerstate":{"Bird Theme Cushion Cover [[BRTC005]]":[{"label":"Blue~Size- 16\\"X16\\"","value":1116,"price":0,"stock":160,"quantity":1}]}}', 'invoice_view_json': '[{"name":"Bird Theme Cushion Cover [[BRTC005]]","basePrice":380,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0,"price":0,"quantity":"120","id":1116,"total":45600,"variant":"Blue~Size- 16\\"X16\\""}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Rajshahi Outlet>, 'redex_division': None, 'redex_district': None, 'redex_area': None, 'created_by': <User: rajshahi@mail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 120 variant_reduce_quantity 120 total avaialable product stock 160 total avaialable variant stock 169
+0 id 85 outlet_product stock reduced-----------------
+
+40 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+49 id 84 outlet_product stock reduced-----------------
+
+ created = False
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+{'invoice_products': [OrderedDict([('quantity', 10), ('total', Decimal('3800.00')), ('product_name', 'Bird Theme Cushion Cover [[BRTC005]]'), ('variant_name', 'Blue~Size- 16"X16"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 26)), ('product', <Products: Bird Theme Cushion Cover - ID413 - 4709>), ('variant', <Variant: Blue~Size- 16"X16" - ID1116 stock - 4729>), ('outlet', <Outlet: Rajshahi Outlet>)])], 'invoice_date': datetime.date(2023, 10, 26), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': 'Md Rakibul Islam', 'from_mobile': '+8801980907892', 'to_mobile': '+8801730387067', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': 'rakibrk300@gmail.com', 'from_address': '27 Shaptak Square, Shop#L03/13 2nd Floor (Level 3)Dhanmondi, Dhaka 1207', 'to_address': 'dhaka', 'to_address2': None, 'to_zip_code': None, 'to_city': 'Shipganj ( Chapai )', 'to_division': 'Rajshahi', 'to_district': 'Rajshahi', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('3800.00'), 'total_due': Decimal('3800.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('3800.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"Bird Theme Cushion Cover [[BRTC005]]":{"id":413,"variant":[{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":49,"quantity":"10","total":3800}],"variantObj":{"Blue~Size- 16\\"X16\\"":{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":49,"quantity":"10","total":3800}},"price":380,"stock":40,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0}},"maininnerstate":{"Bird Theme Cushion Cover [[BRTC005]]":[{"label":"Blue~Size- 16\\"X16\\"","value":1116,"price":0,"stock":49,"quantity":1}]}}', 'invoice_view_json': '[{"name":"Bird Theme Cushion Cover [[BRTC005]]","basePrice":380,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0,"price":0,"quantity":"10","id":1116,"total":3800,"variant":"Blue~Size- 16\\"X16\\""}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Rajshahi Outlet>, 'redex_division': None, 'redex_district': None, 'redex_area': None, 'created_by': <User: rajshahi@mail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 10 variant_reduce_quantity 10 total avaialable product stock 40 total avaialable variant stock 49
+0 id 85 outlet_product stock reduced-----------------
+
+30 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+39 id 84 outlet_product stock reduced-----------------
+
+ created = False
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+-------------color values Blue~Size- 16"X16" 1116 -------------------
+['Size- 16"X16"', 'Blue']
+-------------color values-------------------
+
+-------------color values Blue~Size- 16"X16" 1116 -------------------
+['Size- 16"X16"', 'Blue']
+-------------color values-------------------
+
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+{'invoice_products': [OrderedDict([('quantity', 15), ('total', Decimal('5700.00')), ('product_name', 'Bird Theme Cushion Cover [[BRTC005]]'), ('variant_name', 'Blue~Size- 16"X16"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 26)), ('product', <Products: Bird Theme Cushion Cover - ID413 - 4709>), ('variant', <Variant: Blue~Size- 16"X16" - ID1116 stock - 4738>), ('outlet', <Outlet: Rajshahi Outlet>)])], 'invoice_date': datetime.date(2023, 10, 26), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': 'Md Rakibul Islam', 'from_mobile': '+8801980907892', 'to_mobile': '+8801730387067', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': 'rakibrk300@gmail.com', 'from_address': '27 Shaptak Square, Shop#L03/13 2nd Floor (Level 3)Dhanmondi, Dhaka 1207', 'to_address': 'dhaka', 'to_address2': None, 'to_zip_code': None, 'to_city': 'Shipganj ( Chapai )', 'to_division': 'Rajshahi', 'to_district': 'Rajshahi', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('5700.00'), 'total_due': Decimal('5700.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('5700.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"Bird Theme Cushion Cover [[BRTC005]]":{"id":413,"variant":[{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":30,"quantity":"15","total":5700}],"variantObj":{"Blue~Size- 16\\"X16\\"":{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":30,"quantity":"15","total":5700}},"price":380,"stock":30,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0}},"maininnerstate":{"Bird Theme Cushion Cover [[BRTC005]]":[{"label":"Blue~Size- 16\\"X16\\"","value":1116,"price":0,"stock":30,"quantity":1}]}}', 'invoice_view_json': '[{"name":"Bird Theme Cushion Cover [[BRTC005]]","basePrice":380,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0,"price":0,"quantity":"15","id":1116,"total":5700,"variant":"Blue~Size- 16\\"X16\\""}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Rajshahi Outlet>, 'redex_division': None, 'redex_district': None, 'redex_area': None, 'created_by': <User: rajshahi@mail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 15 variant_reduce_quantity 15 total avaialable product stock 30 total avaialable variant stock 30
+0 id 85 outlet_product stock reduced-----------------
+
+15 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+15 id 84 outlet_product stock reduced-----------------
+
+ created = False
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+-------------color values Blue~Size- 16"X16" 1116 -------------------
+['Size- 16"X16"', 'Blue']
+-------------color values-------------------
+
+-------------color values Blue~Size- 16"X16" 1116 -------------------
+['Size- 16"X16"', 'Blue']
+-------------color values-------------------
+
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+variants <QuerySet [1116]>
+{'invoice_products': [OrderedDict([('quantity', 15), ('total', Decimal('5700.00')), ('product_name', 'Bird Theme Cushion Cover [[BRTC005]]'), ('variant_name', 'Blue~Size- 16"X16"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 26)), ('product', <Products: Bird Theme Cushion Cover - ID413 - 4709>), ('variant', <Variant: Blue~Size- 16"X16" - ID1116 stock - 4738>), ('outlet', <Outlet: Rajshahi Outlet>)])], 'invoice_date': datetime.date(2023, 10, 26), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': 'Md Rakibul Islam', 'from_mobile': '+8801980907892', 'to_mobile': '+8801730387067', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': 'rakibrk300@gmail.com', 'from_address': '27 Shaptak Square, Shop#L03/13 2nd Floor (Level 3)Dhanmondi, Dhaka 1207', 'to_address': 'dhaka', 'to_address2': None, 'to_zip_code': None, 'to_city': 'Shipganj ( Chapai )', 'to_division': 'Rajshahi', 'to_district': 'Rajshahi', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('5700.00'), 'total_due': Decimal('5700.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('5700.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"Bird Theme Cushion Cover [[BRTC005]]":{"id":413,"variant":[{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":15,"quantity":15,"total":5700}],"variantObj":{"Blue~Size- 16\\"X16\\"":{"id":1116,"name":"Blue~Size- 16\\"X16\\"","price":0,"stock":15,"quantity":15,"total":5700}},"price":380,"stock":15,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0}},"maininnerstate":{"Bird Theme Cushion Cover [[BRTC005]]":[{"label":"Blue~Size- 16\\"X16\\"","value":1116,"price":0,"stock":15,"quantity":1}]}}', 'invoice_view_json': '[{"name":"Bird Theme Cushion Cover [[BRTC005]]","basePrice":380,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/07/BRTC002Bird_Themed_Cushion_Cover-_BRTC005_qdFb1L2.webp","discount":0,"price":0,"quantity":15,"id":1116,"total":5700,"variant":"Blue~Size- 16\\"X16\\""}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Rajshahi Outlet>, 'redex_division': None, 'redex_district': None, 'redex_area': None, 'created_by': <User: rajshahi@mail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 15 variant_reduce_quantity 15 total avaialable product stock 15 total avaialable variant stock 15
+0 id 85 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+0 id 84 outlet_product stock reduced-----------------
+
+ created = False
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/clientsdevs/virtualenv/kaaruj_venv/lib/python3.9/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'www.kaaruj.backend.clients.devsstream.com'. You may need to add 'www.kaaruj.backend.clients.devsstream.com' to ALLOWED_HOSTS.
+variants <QuerySet [1926]>
+variants <QuerySet [1926]>
+variants <QuerySet [1926]>
+variants <QuerySet [2347]>
+variants <QuerySet [1988]>
+variants <QuerySet [1987]>
+variants <QuerySet [2347]>
+variants <QuerySet [1988]>
+variants <QuerySet [1987]>
+variants <QuerySet [2347]>
+variants <QuerySet [1988]>
+variants <QuerySet [1987]>
+variants <QuerySet [2347]>
+variants <QuerySet [1988]>
+variants <QuerySet [1987]>
+{'invoice_products': [OrderedDict([('quantity', 1), ('total', Decimal('390.00')), ('product_name', 'MUGHAL-Inspired Printed Cushion Covers [[MGL0001]]'), ('variant_name', 'Joyfal Yellow~Sizes :16"X16"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 27)), ('product', <Products: MUGHAL-Inspired Printed Cushion Covers - ID855 - 13>), ('variant', <Variant: Joyfal Yellow~Sizes :16"X16" - ID1926 stock - 13>), ('outlet', <Outlet: Mirpur -1>)]), OrderedDict([('quantity', 1), ('total', Decimal('370.00')), ('product_name', 'Jamdani Print Cushion Cover [[JMC007.1]]'), ('variant_name', 'light sky blue~Size- 12"X20"'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 27)), ('product', <Products: Jamdani Print Cushion Cover - ID875 - 14>), ('variant', <Variant: light sky blue~Size- 12"X20" - ID1988 stock - 14>), ('outlet', <Outlet: Mirpur -1>)])], 'invoice_date': datetime.date(2023, 10, 27), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': 'SHAFIN', 'from_mobile': '+8801980907892', 'to_mobile': '+8801878787878', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': '', 'from_address': 'Mirpur -1 , Dhaka', 'to_address': '', 'to_address2': '', 'to_zip_code': '', 'to_division': '', 'to_district': '', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('760.00'), 'total_due': Decimal('760.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('760.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"MUGHAL-Inspired Printed Cushion Covers [[MGL0001]]":{"id":855,"variant":[{"id":1926,"name":"Joyfal Yellow~Sizes :16\\"X16\\"","price":0,"stock":4,"quantity":"1","total":390}],"variantObj":{"Joyfal Yellow~Sizes :16\\"X16\\"":{"id":1926,"name":"Joyfal Yellow~Sizes :16\\"X16\\"","price":0,"stock":4,"quantity":"1","total":390}},"price":390,"stock":4,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/11/Mughal_Cushion-_MGL0001_XUfJqMH.webp","discount":0},"Jamdani Print Cushion Cover [[JMC007.1]]":{"id":875,"variant":[{"id":1988,"name":"light sky blue~Size- 12\\"X20\\"","price":0,"stock":4,"quantity":"1","total":370}],"variantObj":{"light sky blue~Size- 12\\"X20\\"":{"id":1988,"name":"light sky blue~Size- 12\\"X20\\"","price":0,"stock":4,"quantity":"1","total":370}},"price":370,"stock":4,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/11/Jamdani_Cushion_Cover-_JMC007.1_mboIqqF.webp","discount":0}},"maininnerstate":{"MUGHAL-Inspired Printed Cushion Covers [[MGL0001]]":[{"label":"Joyfal Yellow~Sizes :16\\"X16\\"","value":1926,"price":0,"stock":4,"quantity":1}],"Jamdani Print Cushion Cover [[JMC007.1]]":[{"label":"light sky blue~Size- 12\\"X20\\"","value":1988,"price":0,"stock":4,"quantity":1}]}}', 'invoice_view_json': '[{"name":"MUGHAL-Inspired Printed Cushion Covers [[MGL0001]]","basePrice":390,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/11/Mughal_Cushion-_MGL0001_XUfJqMH.webp","discount":0,"price":0,"quantity":"1","id":1926,"total":390,"variant":"Joyfal Yellow~Sizes :16\\"X16\\""},{"name":"Jamdani Print Cushion Cover [[JMC007.1]]","basePrice":370,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/11/Jamdani_Cushion_Cover-_JMC007.1_mboIqqF.webp","discount":0,"price":0,"quantity":"1","id":1988,"total":370,"variant":"light sky blue~Size- 12\\"X20\\""}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Mirpur -1>, 'created_by': <User: rakib33@gmail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 1 variant_reduce_quantity 1 total avaialable product stock 4 total avaialable variant stock 4
+
+ total_avaialable_product_stock 4 product_reduce_quantity 0 outlet_product.stock 3 id 80 IN ELSE-- 
+
+3 id 80 outlet_product stock reduced-----------------
+
+product_reduce_quantity 1 variant_reduce_quantity 1 total avaialable product stock 4 total avaialable variant stock 4
+
+ total_avaialable_product_stock 4 product_reduce_quantity 0 outlet_product.stock 3 id 59 IN ELSE-- 
+
+3 id 59 outlet_product stock reduced-----------------
+
+ created = False
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+variants <QuerySet [2329]>
+variants <QuerySet [2292]>
+variants <QuerySet [2290]>
+variants <QuerySet [2292]>
+variants <QuerySet [2290]>
+variants <QuerySet [2292]>
+variants <QuerySet [2290]>
+variants <QuerySet [2329]>
+variants <QuerySet [2292]>
+variants <QuerySet [2290]>
+variants <QuerySet [2292]>
+variants <QuerySet [2290]>
+variants <QuerySet [2292]>
+variants <QuerySet [2290]>
+{'invoice_products': [OrderedDict([('quantity', 1), ('total', Decimal('370.00')), ('product_name', 'IKAT Inspired Printed Cushion Cover [[IKTC018]]'), ('variant_name', 'Sky Mixed~Sizes:  16” x 16”,'), ('is_custom', False), ('is_outlet', True), ('invoice_date', datetime.date(2023, 10, 27)), ('product', <Products: IKAT Inspired Printed Cushion Cover - ID1050 - 0>), ('variant', <Variant: Sky Mixed~Sizes:  16” x 16”, - ID2290 stock - 0>), ('outlet', <Outlet: Mirpur -1>)])], 'invoice_date': datetime.date(2023, 10, 27), 'reference_id': '', 'bill_from': 'KAARUJ', 'bill_to': '', 'from_mobile': '+8801980907892', 'to_mobile': '+8801749947705', 'from_email': 'kaarujbangladesh@gmail.com', 'to_email': '', 'from_address': 'Mirpur -1 , Dhaka', 'to_address': '', 'to_address2': '', 'to_zip_code': '', 'to_division': '', 'to_district': '', 'to_country': 'Bangladesh', 'delivery_type': 0, 'delivery_charge': Decimal('0.00'), 'delivery_charge_type': 2, 'payment_type': 0, 'mixed_payment_details': [], 'discount_type': 0, 'delivery_status': 2, 'sub_total': Decimal('370.00'), 'total_due': Decimal('370.00'), 'total_paid': Decimal('0.00'), 'total_amount': Decimal('370.00'), 'total_discount': Decimal('0.00'), 'payment_status': 0, 'notes': '', 'product_list_json': '{"mainstate":{"IKAT Inspired Printed Cushion Cover [[IKTC018]]":{"id":1050,"variant":[{"id":2290,"name":"Sky Mixed~Sizes:  16” x 16”,","price":0,"stock":17,"quantity":"1","total":370}],"variantObj":{"Sky Mixed~Sizes:  16” x 16”,":{"id":2290,"name":"Sky Mixed~Sizes:  16” x 16”,","price":0,"stock":17,"quantity":"1","total":370}},"price":370,"stock":14,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/13/Ikat_Cushion-_IKTC018_BxPEUYo.webp","discount":0}},"maininnerstate":{"IKAT Inspired Printed Cushion Cover [[IKTC018]]":[{"label":"Sky Mixed~Sizes:  16” x 16”,","value":2290,"price":0,"stock":17,"quantity":1}]}}', 'invoice_view_json': '[{"name":"IKAT Inspired Printed Cushion Cover [[IKTC018]]","basePrice":370,"thumb":"https://kaaruj.backend.clients.devsstream.com/media/documents/2023/09/13/Ikat_Cushion-_IKTC018_BxPEUYo.webp","discount":0,"price":0,"quantity":"1","id":2290,"total":370,"variant":"Sky Mixed~Sizes:  16” x 16”,"}]', 'send_pdf': False, 'card_holder_name': '', 'card_number': '', 'bank_name': '', 'banK_account_number': '', 'banK_account_name': '', 'banK_branch_name': '', 'bkash_number': '', 'bkash_trx_number': '', 'nagad_number': '', 'nagad_trx_number': '', 'is_outlet': True, 'outlet': <Outlet: Mirpur -1>, 'created_by': <User: rakib33@gmail.com>}
+ created = True
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False
+product_reduce_quantity 1 variant_reduce_quantity 1 total avaialable product stock 14 total avaialable variant stock 18
+
+ total_avaialable_product_stock 14 product_reduce_quantity 0 outlet_product.stock 13 id 55 IN ELSE-- 
+
+0 id 55 outlet_product stock reduced-----------------
+
+13 id 55 outlet_product stock reduced-----------------
+
+
+ total_avaialable_variant_stock 18 variant_reduce_quantity 0 outlet_variant.stock 1 id 74 IN ELSE-- 
+
+
+ total_avaialable_variant_stock 18 variant_reduce_quantity 0 outlet_variant.stock 1 id 68 IN ELSE-- 
+
+
+ total_avaialable_variant_stock 18 variant_reduce_quantity 0 outlet_variant.stock 1 id 28 IN ELSE-- 
+
+
+ total_avaialable_variant_stock 18 variant_reduce_quantity 0 outlet_variant.stock 1 id 26 IN ELSE-- 
+
+ created = False
+ payment status = 0
+ is regular = False
+ is stock updated after exchange = False

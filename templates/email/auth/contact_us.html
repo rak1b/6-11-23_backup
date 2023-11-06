@@ -1,0 +1,21 @@
+{% extends 'email/base.html' %}
+{% load static %}
+
+{% block emailheader %}
+<h1>Contact Request</h1>
+{% endblock %}
+
+{% block emailbody %}
+<!-- Email Body -->
+<p><strong>Contact Type:</strong> {{ contact_type }}</p>
+<p><strong>Inquiry Type:</strong> {{ inquiry_type }}</p>
+<p><strong>Name:</strong> {{ name }}</p>
+<p><strong>Email:</strong> {{ email }}</p>
+<p><strong>Mobile:</strong> {{ mobile }}</p>
+
+<p><strong>Message:</strong><br>{{ message }}</p>
+
+{% if document %}
+<p><strong>Document URL:</strong> {{ document|default:"No document provided" }}</p>
+{% endif %}
+{% endblock %}
