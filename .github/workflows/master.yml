@@ -18,3 +18,4 @@ jobs:
         username: cicd_test@kaaruj.backend.clients.devsstream.com
         password: ${{ secrets.ftp_password }}
         server-dir: /home/clientsdevs/cicd_test/
+        protocol: ftps
